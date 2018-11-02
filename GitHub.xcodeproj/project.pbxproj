@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD1DE1DF218CE8CB007BBF7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DE1DE218CE8CB007BBF7C /* AppDelegate.swift */; };
-		DD1DE1E1218CE8CB007BBF7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DE1E0218CE8CB007BBF7C /* ViewController.swift */; };
+		DD1DE1E1218CE8CB007BBF7C /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DE1E0218CE8CB007BBF7C /* EnterViewController.swift */; };
 		DD1DE1E4218CE8CB007BBF7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1DE1E2218CE8CB007BBF7C /* Main.storyboard */; };
 		DD1DE1E6218CE8CB007BBF7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1DE1E5218CE8CB007BBF7C /* Assets.xcassets */; };
 		DD1DE1E9218CE8CB007BBF7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1DE1E7218CE8CB007BBF7C /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		DD1DE1DB218CE8CB007BBF7C /* GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1DE1DE218CE8CB007BBF7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD1DE1E0218CE8CB007BBF7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD1DE1E0218CE8CB007BBF7C /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		DD1DE1E3218CE8CB007BBF7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD1DE1E5218CE8CB007BBF7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD1DE1E8218CE8CB007BBF7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				DD1DE1DE218CE8CB007BBF7C /* AppDelegate.swift */,
-				DD1DE1E0218CE8CB007BBF7C /* ViewController.swift */,
+				DD1DE1E0218CE8CB007BBF7C /* EnterViewController.swift */,
 				DD1DE1E2218CE8CB007BBF7C /* Main.storyboard */,
 				DD1DE1E5218CE8CB007BBF7C /* Assets.xcassets */,
 				DD1DE1E7218CE8CB007BBF7C /* LaunchScreen.storyboard */,
@@ -135,7 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1DE1E1218CE8CB007BBF7C /* ViewController.swift in Sources */,
+				DD1DE1E1218CE8CB007BBF7C /* EnterViewController.swift in Sources */,
 				DD1DE1DF218CE8CB007BBF7C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +289,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = VK.GitHub;
+				PRODUCT_BUNDLE_IDENTIFIER = VK.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,7 +307,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = VK.GitHub;
+				PRODUCT_BUNDLE_IDENTIFIER = VK.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
