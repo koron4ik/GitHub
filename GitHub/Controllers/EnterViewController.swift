@@ -60,7 +60,14 @@ class EnterViewController: UIViewController {
     @objc func buttonClicked() {
         print("Clicked")
         animationButtonPressed()
+        
+        let menuTabBarController = MenuTabBarController()
+        menuTabBarController.selectedViewController = menuTabBarController.viewControllers?.first
+        present(menuTabBarController, animated: true, completion: nil)
+        
     }
+    
+    
         
     func startRepeatingButtonAnimation() {
         signInButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
