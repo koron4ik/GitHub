@@ -10,16 +10,22 @@ import UIKit
 
 class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
-    let searchController = UISearchController(searchResultsController: nil)
+    
+     let searchController: UISearchController = {
+        let search = UISearchController(searchResultsController: nil)
+        search.hidesNavigationBarDuringPresentation = false
+        search.dimsBackgroundDuringPresentation = false
+        search.searchBar.sizeToFit()
+        search.searchBar.text = "Swift"
+        return search
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.sizeToFit()
         self.tableView.tableHeaderView = searchController.searchBar
+        
     }
 
     func updateSearchResults(for searchController: UISearchController) {

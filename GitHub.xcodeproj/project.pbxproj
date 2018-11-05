@@ -12,10 +12,15 @@
 		DD1DE1E4218CE8CB007BBF7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1DE1E2218CE8CB007BBF7C /* Main.storyboard */; };
 		DD1DE1E6218CE8CB007BBF7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1DE1E5218CE8CB007BBF7C /* Assets.xcassets */; };
 		DD1DE1E9218CE8CB007BBF7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1DE1E7218CE8CB007BBF7C /* LaunchScreen.storyboard */; };
+		DD828728218EEFE6009F314E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD828727218EEFE6009F314E /* LoginViewController.swift */; };
+		DD9A8271219042890088F227 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9A8270219042890088F227 /* User.swift */; };
 		DDF669EF218DAD2A00453E63 /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669EE218DAD2A00453E63 /* ReposViewController.swift */; };
 		DDF669F1218DAD3600453E63 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669F0218DAD3600453E63 /* SearchViewController.swift */; };
 		DDF669F3218DB0CC00453E63 /* MenuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669F2218DB0CC00453E63 /* MenuTabBarController.swift */; };
 		DDF669F6218DBBF800453E63 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669F5218DBBF800453E63 /* ProfileViewController.swift */; };
+		DDF669F8218DCC4600453E63 /* EnterViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669F7218DCC4600453E63 /* EnterViewController+Animations.swift */; };
+		DDF669FC218DF1AA00453E63 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669FB218DF1AA00453E63 /* Repository.swift */; };
+		DDF669FE218DF21600453E63 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669FD218DF21600453E63 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +31,15 @@
 		DD1DE1E5218CE8CB007BBF7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD1DE1E8218CE8CB007BBF7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD1DE1EA218CE8CB007BBF7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD828727218EEFE6009F314E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DD9A8270219042890088F227 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DDF669EE218DAD2A00453E63 /* ReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposViewController.swift; sourceTree = "<group>"; };
 		DDF669F0218DAD3600453E63 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DDF669F2218DB0CC00453E63 /* MenuTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBarController.swift; sourceTree = "<group>"; };
 		DDF669F5218DBBF800453E63 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DDF669F7218DCC4600453E63 /* EnterViewController+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnterViewController+Animations.swift"; sourceTree = "<group>"; };
+		DDF669FB218DF1AA00453E63 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		DDF669FD218DF21600453E63 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +74,9 @@
 			children = (
 				DDF669F4218DB23700453E63 /* Controllers */,
 				DD1DE1DE218CE8CB007BBF7C /* AppDelegate.swift */,
+				DDF669FD218DF21600453E63 /* APIManager.swift */,
+				DDF669FB218DF1AA00453E63 /* Repository.swift */,
+				DD9A8270219042890088F227 /* User.swift */,
 				DD1DE1E2218CE8CB007BBF7C /* Main.storyboard */,
 				DD1DE1E5218CE8CB007BBF7C /* Assets.xcassets */,
 				DD1DE1E7218CE8CB007BBF7C /* LaunchScreen.storyboard */,
@@ -77,9 +90,11 @@
 			children = (
 				DD1DE1E0218CE8CB007BBF7C /* EnterViewController.swift */,
 				DDF669F2218DB0CC00453E63 /* MenuTabBarController.swift */,
+				DDF669F7218DCC4600453E63 /* EnterViewController+Animations.swift */,
 				DDF669EE218DAD2A00453E63 /* ReposViewController.swift */,
 				DDF669F0218DAD3600453E63 /* SearchViewController.swift */,
 				DDF669F5218DBBF800453E63 /* ProfileViewController.swift */,
+				DD828727218EEFE6009F314E /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -91,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD1DE1ED218CE8CB007BBF7C /* Build configuration list for PBXNativeTarget "GitHub" */;
 			buildPhases = (
+				F98D7FF4E754D9DF969779F0 /* [CP] Check Pods Manifest.lock */,
 				DD1DE1D7218CE8CB007BBF7C /* Sources */,
 				DD1DE1D8218CE8CB007BBF7C /* Frameworks */,
 				DD1DE1D9218CE8CB007BBF7C /* Resources */,
+				41F5148E0BCAE723F45DE592 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +167,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41F5148E0BCAE723F45DE592 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+			showEnvVarsInLog = 0;
+		};
+		F98D7FF4E754D9DF969779F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GitHub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DD1DE1D7218CE8CB007BBF7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -158,9 +219,14 @@
 				DDF669F6218DBBF800453E63 /* ProfileViewController.swift in Sources */,
 				DDF669EF218DAD2A00453E63 /* ReposViewController.swift in Sources */,
 				DDF669F3218DB0CC00453E63 /* MenuTabBarController.swift in Sources */,
+				DDF669FE218DF21600453E63 /* APIManager.swift in Sources */,
+				DDF669FC218DF1AA00453E63 /* Repository.swift in Sources */,
 				DD1DE1E1218CE8CB007BBF7C /* EnterViewController.swift in Sources */,
 				DDF669F1218DAD3600453E63 /* SearchViewController.swift in Sources */,
+				DDF669F8218DCC4600453E63 /* EnterViewController+Animations.swift in Sources */,
+				DD828728218EEFE6009F314E /* LoginViewController.swift in Sources */,
 				DD1DE1DF218CE8CB007BBF7C /* AppDelegate.swift in Sources */,
+				DD9A8271219042890088F227 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6KRZX2358;
 				INFOPLIST_FILE = GitHub/Info.plist;
@@ -324,6 +391,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6KRZX2358;
 				INFOPLIST_FILE = GitHub/Info.plist;
