@@ -23,6 +23,8 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        
         searchController.searchResultsUpdater = self
         self.tableView.tableHeaderView = searchController.searchBar
         

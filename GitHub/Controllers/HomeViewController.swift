@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnterViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     lazy var githubLogoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: (self.view.frame.size.width - 130) / 2, y: (self.view.frame.size.height - 300) / 2, width: 130, height: 130))
@@ -35,7 +35,7 @@ class EnterViewController: UIViewController {
         button.frame = CGRect(x: (self.view.frame.size.width - 300) / 2, y: self.view.frame.size.height - 100, width: 300, height: 50)
         button.setImage(UIImage(named: "login"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
+        button.addTarget(self, action:#selector(loginButtonPressed), for: .touchUpInside)
         
         return button
     }()
@@ -57,18 +57,14 @@ class EnterViewController: UIViewController {
         beginButtonAnimation()
     }
 
-    @objc func buttonClicked() {
-        print("Clicked")
+    @objc func loginButtonPressed() {
         animationButtonPressed()
         
-//        let menuTabBarController = MenuTabBarController()
-//        menuTabBarController.selectedViewController = menuTabBarController.viewControllers?.first
-//        present(menuTabBarController, animated: true, completion: nil)
-        
         let loginViewController = LoginViewController()
-        navigationController?.pushViewController(loginViewController, animated: true)
+        let appDelegate = UIApplication.shared.delegate
+        appDelegate?.window??.rootViewController = loginViewController
+        
+        
     }
-    
-    
 }
 

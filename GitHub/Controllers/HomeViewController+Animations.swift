@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension EnterViewController {
+extension HomeViewController {
     
     func startRepeatingButtonAnimation() {
         signInButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)

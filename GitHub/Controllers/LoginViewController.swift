@@ -63,7 +63,6 @@ class LoginViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
                         }
                     }
                     task.resume()
-                    
                 }
                 decisionHandler(WKNavigationActionPolicy.cancel)
             } else {

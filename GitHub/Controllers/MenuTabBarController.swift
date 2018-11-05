@@ -15,15 +15,12 @@ class MenuTabBarController: UITabBarController {
         
         let reposViewController = ReposViewController()
         reposViewController.title = "Repositories"
-        reposViewController.view.backgroundColor = .orange
         
         let searchViewController = SearchViewController()
         searchViewController.title = "Search"
-        searchViewController.view.backgroundColor = .white
         
         let profileViewController = ProfileViewController()
         profileViewController.title = "Profile"
-        profileViewController.view.backgroundColor = .red
         
         reposViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
