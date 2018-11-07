@@ -13,7 +13,19 @@ class ProfileViewController: UIViewController {
     
     var profileImage: UIImage?
     var profileImageView: UIImageView?
-    var nicknameTextField: UITextField?
+    var nicknameLabel: UILabel?
+    
+    var user: User? {
+        didSet {
+            if let avatarUrl = user?.avatarUrl {
+                setupProfileImage(avatarUrl: avatarUrl)
+            }
+            
+            if let login = user?.login {
+                setupUserNickName(with: login)
+            }
+        }
+    }
     
     lazy var logoutButton: UIButton = {
         let button = UIButton()
@@ -31,18 +43,12 @@ class ProfileViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        
-        setupProfileImage()
-        setupUserNickName()
-        
         view.addSubview(logoutButton)
     }
     
     @objc func logoutButtonPressed() {
-        
         cleanUserInfo()
         setHomePage()
-        
     }
     
     func cleanUserInfo() {
@@ -58,60 +64,35 @@ class ProfileViewController: UIViewController {
         appDelegate?.window??.rootViewController = homeViewController
     }
     
-    func setupUserNickName() {
-        nicknameTextField = UITextField(frame: CGRect(x: (view.frame.width - 300) / 2,
+    func setupUserNickName(with login: String) {
+        nicknameLabel = UILabel(frame: CGRect(x: (view.frame.width - 300) / 2,
                                                       y: 350,
                                                       width: 300,
                                                       height: 40))
-        nicknameTextField?.text = "koron4ik"
-        nicknameTextField?.font = UIFont.systemFont(ofSize: 25)
-        nicknameTextField?.textAlignment = .center
-        nicknameTextField?.isUserInteractionEnabled = false
-        view.addSubview(nicknameTextField!)
+        nicknameLabel?.text = login
+        nicknameLabel?.font = UIFont.systemFont(ofSize: 25)
+        nicknameLabel?.textAlignment = .center
+        nicknameLabel?.isUserInteractionEnabled = false
+        if let nicknameLabel = nicknameLabel {
+            view.addSubview(nicknameLabel)
+        }
     }
     
-    func setupProfileImage() {
-        let url = URL(string: "https://avatars1.githubusercontent.com/u/42875321?v=4")
-        if let url = url {
-            let data = try? Data(contentsOf: url)
-            if let data = data {
-                if let profileImage = UIImage(data: data) {
-                    self.profileImage = profileImage
-                    let newSize = CGSize(width: view.frame.width / 3, height: view.frame.height / 3)
-                    self.profileImage = resizeImage(image: profileImage, targetSize: newSize)
-                    setupProfileImageView()
-                }
-                
-            }
+    func setupProfileImage(avatarUrl: String) {
+        let profileUrl = URL(string: avatarUrl)
+        guard let url = profileUrl else { return }
+        
+        if let data = try? Data(contentsOf: url) {
+            self.profileImage = UIImage(data: data)
+            
+            let size = CGSize(width: view.frame.width / 3, height: view.frame.height / 3)
+            self.profileImage = self.profileImage?.resizeImage(targetSize: size)
+            
+            self.setupProfileImageView()
         }
-        
-    }
-    
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        
-        let widthRatio  = targetSize.width  / image.size.width
-        let heightRatio = targetSize.height / image.size.height
-        
-        var newSize: CGSize
-        if(widthRatio > heightRatio) {
-            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-        } else {
-            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
-        }
-        
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-        
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage ?? UIImage()
     }
     
     func setupProfileImageView() {
-        
         if let profileImage = profileImage {
             let imageWidth = view.frame.width / 3
             let imageHeight = view.frame.height / 3
@@ -127,10 +108,31 @@ class ProfileViewController: UIViewController {
             
             view.addSubview(imageView)
         }
-        
     }
-    
+}
 
+extension UIImage {
     
-
+    func resizeImage(targetSize: CGSize) -> UIImage {
+        let size = self.size
+        
+        let widthRatio  = targetSize.width  / self.size.width
+        let heightRatio = targetSize.height / self.size.height
+        
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+        }
+        
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        self.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage ?? self
+    }
 }

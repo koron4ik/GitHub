@@ -8,7 +8,14 @@
 
 import Foundation
 
-struct User {
-    var login: String
+class User {
+    
     var accessToken: String
+    
+    var login: String?
+    var avatarUrl: String?
+    
+    init(accessToken: String) {
+        self.accessToken = accessToken
+    }
 }

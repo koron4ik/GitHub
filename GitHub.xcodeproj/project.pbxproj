@@ -14,12 +14,14 @@
 		DD1DE1E9218CE8CB007BBF7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1DE1E7218CE8CB007BBF7C /* LaunchScreen.storyboard */; };
 		DD828728218EEFE6009F314E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD828727218EEFE6009F314E /* LoginViewController.swift */; };
 		DD9A8271219042890088F227 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9A8270219042890088F227 /* User.swift */; };
-		DDF669EF218DAD2A00453E63 /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669EE218DAD2A00453E63 /* ReposViewController.swift */; };
+		DD9A827F2191EE6A0088F227 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9A827E2191EE6A0088F227 /* RepositoryViewController.swift */; };
+		DD9A828321921B740088F227 /* RepositoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9A828221921B740088F227 /* RepositoryTableView.swift */; };
+		DDF669EF218DAD2A00453E63 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669EE218DAD2A00453E63 /* BookmarkViewController.swift */; };
 		DDF669F1218DAD3600453E63 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669F0218DAD3600453E63 /* SearchViewController.swift */; };
 		DDF669F3218DB0CC00453E63 /* MenuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669F2218DB0CC00453E63 /* MenuTabBarController.swift */; };
 		DDF669F6218DBBF800453E63 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669F5218DBBF800453E63 /* ProfileViewController.swift */; };
 		DDF669F8218DCC4600453E63 /* HomeViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669F7218DCC4600453E63 /* HomeViewController+Animations.swift */; };
-		DDF669FC218DF1AA00453E63 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669FB218DF1AA00453E63 /* Repository.swift */; };
+		DDF669FC218DF1AA00453E63 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669FB218DF1AA00453E63 /* Repositories.swift */; };
 		DDF669FE218DF21600453E63 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669FD218DF21600453E63 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,12 +35,14 @@
 		DD1DE1EA218CE8CB007BBF7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD828727218EEFE6009F314E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD9A8270219042890088F227 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		DDF669EE218DAD2A00453E63 /* ReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposViewController.swift; sourceTree = "<group>"; };
+		DD9A827E2191EE6A0088F227 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		DD9A828221921B740088F227 /* RepositoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableView.swift; sourceTree = "<group>"; };
+		DDF669EE218DAD2A00453E63 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		DDF669F0218DAD3600453E63 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DDF669F2218DB0CC00453E63 /* MenuTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBarController.swift; sourceTree = "<group>"; };
 		DDF669F5218DBBF800453E63 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DDF669F7218DCC4600453E63 /* HomeViewController+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Animations.swift"; sourceTree = "<group>"; };
-		DDF669FB218DF1AA00453E63 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		DDF669FB218DF1AA00453E63 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 		DDF669FD218DF21600453E63 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,11 +76,11 @@
 		DD1DE1DD218CE8CB007BBF7C /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
-				DDF669F4218DB23700453E63 /* Controllers */,
 				DD1DE1DE218CE8CB007BBF7C /* AppDelegate.swift */,
-				DDF669FD218DF21600453E63 /* APIManager.swift */,
-				DDF669FB218DF1AA00453E63 /* Repository.swift */,
-				DD9A8270219042890088F227 /* User.swift */,
+				DD9A82742191DA7B0088F227 /* Home */,
+				DD9A82772191DAA70088F227 /* Login */,
+				DD9A82812191F03C0088F227 /* Menu */,
+				DD9A827A2191DAED0088F227 /* Model */,
 				DD1DE1E2218CE8CB007BBF7C /* Main.storyboard */,
 				DD1DE1E5218CE8CB007BBF7C /* Assets.xcassets */,
 				DD1DE1E7218CE8CB007BBF7C /* LaunchScreen.storyboard */,
@@ -85,18 +89,76 @@
 			path = GitHub;
 			sourceTree = "<group>";
 		};
-		DDF669F4218DB23700453E63 /* Controllers */ = {
+		DD9A82742191DA7B0088F227 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				DD1DE1E0218CE8CB007BBF7C /* HomeViewController.swift */,
-				DDF669F2218DB0CC00453E63 /* MenuTabBarController.swift */,
 				DDF669F7218DCC4600453E63 /* HomeViewController+Animations.swift */,
-				DDF669EE218DAD2A00453E63 /* ReposViewController.swift */,
-				DDF669F0218DAD3600453E63 /* SearchViewController.swift */,
-				DDF669F5218DBBF800453E63 /* ProfileViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DD9A82772191DAA70088F227 /* Login */ = {
+			isa = PBXGroup;
+			children = (
 				DD828727218EEFE6009F314E /* LoginViewController.swift */,
 			);
-			path = Controllers;
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DD9A82782191DABA0088F227 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DDF669F5218DBBF800453E63 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		DD9A82792191DADB0088F227 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DD9A82802191EF090088F227 /* Repository */,
+				DDF669F0218DAD3600453E63 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DD9A827A2191DAED0088F227 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDF669FD218DF21600453E63 /* APIManager.swift */,
+				DDF669FB218DF1AA00453E63 /* Repositories.swift */,
+				DD9A8270219042890088F227 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD9A827B2191DB0A0088F227 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				DDF669EE218DAD2A00453E63 /* BookmarkViewController.swift */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		DD9A82802191EF090088F227 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				DD9A827E2191EE6A0088F227 /* RepositoryViewController.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		DD9A82812191F03C0088F227 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				DDF669F2218DB0CC00453E63 /* MenuTabBarController.swift */,
+				DD9A828221921B740088F227 /* RepositoryTableView.swift */,
+				DD9A82782191DABA0088F227 /* Profile */,
+				DD9A827B2191DB0A0088F227 /* Bookmark */,
+				DD9A82792191DADB0088F227 /* Search */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,14 +279,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDF669F6218DBBF800453E63 /* ProfileViewController.swift in Sources */,
-				DDF669EF218DAD2A00453E63 /* ReposViewController.swift in Sources */,
+				DDF669EF218DAD2A00453E63 /* BookmarkViewController.swift in Sources */,
 				DDF669F3218DB0CC00453E63 /* MenuTabBarController.swift in Sources */,
 				DDF669FE218DF21600453E63 /* APIManager.swift in Sources */,
-				DDF669FC218DF1AA00453E63 /* Repository.swift in Sources */,
+				DD9A827F2191EE6A0088F227 /* RepositoryViewController.swift in Sources */,
+				DDF669FC218DF1AA00453E63 /* Repositories.swift in Sources */,
 				DD1DE1E1218CE8CB007BBF7C /* HomeViewController.swift in Sources */,
 				DDF669F1218DAD3600453E63 /* SearchViewController.swift in Sources */,
 				DDF669F8218DCC4600453E63 /* HomeViewController+Animations.swift in Sources */,
 				DD828728218EEFE6009F314E /* LoginViewController.swift in Sources */,
+				DD9A828321921B740088F227 /* RepositoryTableView.swift in Sources */,
 				DD1DE1DF218CE8CB007BBF7C /* AppDelegate.swift in Sources */,
 				DD9A8271219042890088F227 /* User.swift in Sources */,
 			);
