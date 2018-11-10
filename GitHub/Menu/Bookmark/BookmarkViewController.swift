@@ -14,6 +14,7 @@ class BookmarkViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+        
     }
     
     

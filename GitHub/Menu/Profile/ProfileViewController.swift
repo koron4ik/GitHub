@@ -65,10 +65,7 @@ class ProfileViewController: UIViewController {
     }
     
     func setupUserNickName(with login: String) {
-        nicknameLabel = UILabel(frame: CGRect(x: (view.frame.width - 300) / 2,
-                                                      y: 350,
-                                                      width: 300,
-                                                      height: 40))
+        nicknameLabel = UILabel(frame: CGRect(x: (view.frame.width - 300) / 2, y: 350, width: 300, height: 40))
         nicknameLabel?.text = login
         nicknameLabel?.font = UIFont.systemFont(ofSize: 25)
         nicknameLabel?.textAlignment = .center

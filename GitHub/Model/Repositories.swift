@@ -9,7 +9,6 @@
 import Foundation
 
 struct Repositories: Decodable {
-    
     var items: [Repository]?
 }
 
@@ -17,9 +16,8 @@ struct Repository: Decodable {
     var name: String?
     var full_name: String?
     var description: String?
-    var html_url: String?
+    var url: String?
     var language: String?
-    //var stargazers_count: String?
     
     var owner: Owner?
 }
@@ -27,4 +25,14 @@ struct Repository: Decodable {
 struct Owner: Decodable {
     var login: String?
     var avatar_url: String?
+}
+
+struct Content: Decodable {
+    var name: String?
+    var path: String?
+    var sha: String?
+    var url: String?
+    var html_url: String?
+    var type: String?
+    var download_url: String?
 }

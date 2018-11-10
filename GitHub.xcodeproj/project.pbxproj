@@ -23,6 +23,7 @@
 		DDF669F8218DCC4600453E63 /* HomeViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669F7218DCC4600453E63 /* HomeViewController+Animations.swift */; };
 		DDF669FC218DF1AA00453E63 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669FB218DF1AA00453E63 /* Repositories.swift */; };
 		DDF669FE218DF21600453E63 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669FD218DF21600453E63 /* APIManager.swift */; };
+		DDF7142C2195E50D0054AD0E /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF7142B2195E50D0054AD0E /* FileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		DDF669F7218DCC4600453E63 /* HomeViewController+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Animations.swift"; sourceTree = "<group>"; };
 		DDF669FB218DF1AA00453E63 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 		DDF669FD218DF21600453E63 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		DDF7142B2195E50D0054AD0E /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9A827E2191EE6A0088F227 /* RepositoryViewController.swift */,
+				DDF7142B2195E50D0054AD0E /* FileViewController.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				DDF669FE218DF21600453E63 /* APIManager.swift in Sources */,
 				DD9A827F2191EE6A0088F227 /* RepositoryViewController.swift in Sources */,
 				DDF669FC218DF1AA00453E63 /* Repositories.swift in Sources */,
+				DDF7142C2195E50D0054AD0E /* FileViewController.swift in Sources */,
 				DD1DE1E1218CE8CB007BBF7C /* HomeViewController.swift in Sources */,
 				DDF669F1218DAD3600453E63 /* SearchViewController.swift in Sources */,
 				DDF669F8218DCC4600453E63 /* HomeViewController+Animations.swift in Sources */,

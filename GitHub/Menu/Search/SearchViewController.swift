@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UITableViewController, UISearchResultsUpdating {
+class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     var repositories: Repositories?
     var apiManager = APIManager()
@@ -16,7 +16,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     var cellsPerPage = 15
     var numberOfCells: Int?
     
-    let cellId = "id"
+    let cellId = "cell"
     
     let searchController: UISearchController = {
         let search = UISearchController(searchResultsController: nil)
@@ -31,16 +31,22 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
         view.backgroundColor = .white
         definesPresentationContext = true
-        
-        searchController.searchResultsUpdater = self
-        //searchController.searchBar.delegate = self
+        //searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         
         navigationItem.searchController = searchController
         tableView.tableFooterView = UIView(frame: .zero)
-        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
 
-    func updateSearchResults(for searchController: UISearchController) {
+//    func updateSearchResults(for searchController: UISearchController) {
+//        if let searchText = searchController.searchBar.text {
+//            getRepositories(parameter: searchText)
+//        }
+//    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.numberOfCells = self.cellsPerPage
+        
         if let searchText = searchController.searchBar.text {
             getRepositories(parameter: searchText)
         }
@@ -55,8 +61,14 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
                     do {
                         self.repositories = try JSONDecoder().decode(Repositories.self, from: data)
                         DispatchQueue.main.async {
-                            self.numberOfCells = self.cellsPerPage
-                            self.tableView.reloadData()
+                            if self.repositories?.items?.count == 0 {
+                                self.showAlert()
+                                
+                                self.searchController.searchBar.text?.removeAll()
+                                //self.searchController.searchBar.becomeFirstResponder()
+                            } else {
+                                self.tableView.reloadData()
+                            }
                         }
                     } catch {
                         print(error)
@@ -66,9 +78,20 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         }
     }
     
+    func showAlert() {
+        let alert = UIAlertController(title: "Repositoires not found", message: nil, preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let repositoryViewController = RepositoryViewController()
-        navigationController?.pushViewController(repositoryViewController, animated: true)
+        if let repositories = repositories, let items = repositories.items {
+            if let url = items[indexPath.row].url {
+                let repositoryViewController = RepositoryViewController.init(url: "\(url)/contents")
+                navigationController?.pushViewController(repositoryViewController, animated: true)
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,9 +103,9 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let numberOfCells = numberOfCells,
-            let repositories = repositories,
-            let items = repositories.items else {
-                return
+              let repositories = repositories,
+              let items = repositories.items else {
+                  return
         }
         
         if indexPath.row == numberOfCells - 1 {
@@ -106,25 +129,31 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         }
         
         guard let cell = newCell,
-            let repositories = repositories,
-            let items = repositories.items else {
-            return UITableViewCell()
+              let repositories = repositories,
+              let items = repositories.items else {
+                  return UITableViewCell()
         }
         
         cell.textLabel?.text = items[indexPath.row].full_name
         cell.detailTextLabel?.text = items[indexPath.row].description
         
-        if let avatarUrl = items[indexPath.row].owner?.avatar_url {
-            let url = URL(string: avatarUrl)
-            if let url = url {
-                if let data = try? Data(contentsOf: url) {
-                    let image = UIImage(data: data)
-                    cell.imageView?.image = image?.resizeImage(targetSize: CGSize(width: 40, height: 40))
-                    cell.imageView?.layer.cornerRadius = 20
-                    cell.imageView?.clipsToBounds = true
+        DispatchQueue.global(qos: .background).async {
+            if let avatarUrl = items[indexPath.row].owner?.avatar_url {
+                let url = URL(string: avatarUrl)
+                if let url = url {
+                    if let data = try? Data(contentsOf: url) {
+                        let image = UIImage(data: data)
+                        DispatchQueue.main.async {
+                            cell.imageView?.image = image?.resizeImage(targetSize: CGSize(width: 40, height: 40))
+                            cell.imageView?.layer.cornerRadius = 20
+                            cell.imageView?.clipsToBounds = true
+                        }
+                        
+                    }
                 }
             }
         }
+        
         return cell
     }
     
