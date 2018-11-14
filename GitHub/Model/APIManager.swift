@@ -8,15 +8,16 @@
 
 import Foundation
 
-class APIManager {
+struct APIManager {
     
-    let githubURL = "https://api.github.com"
     let userURL = URL(string: "https://api.github.com/user")
     let tokenURL = URL(string: "https://github.com/login/oauth/access_token")
     lazy var authorizeURL = URL(string: "https://github.com/login/oauth/authorize?client_id=\(clientId)")
     
-    let search = "/search/repositories?"
+    let githubURL = "https://api.github.com"
     let reposURL = "https://api.github.com/repos"
+    let search = "/search/repositories?"
+    
     let host = "www.google.com"
     let clientId = "e474de4ebc134d61208b"
     let clientSecret = "4bcb70520856e6b809185d163b3bb5372df05cda"

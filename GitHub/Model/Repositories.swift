@@ -21,18 +21,3 @@ struct Repository: Decodable {
     
     var owner: Owner?
 }
-
-struct Owner: Decodable {
-    var login: String?
-    var avatar_url: String?
-}
-
-struct Content: Decodable {
-    var name: String?
-    var path: String?
-    var sha: String?
-    var url: String?
-    var html_url: String?
-    var type: String?
-    var download_url: String?
-}
