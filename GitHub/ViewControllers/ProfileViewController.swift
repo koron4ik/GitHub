@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController {
     private let nicknameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.font = UIFont.init(name: "Noteworthy-Bold", size: 30)
         label.textAlignment = .center
         label.isUserInteractionEnabled = false
         
