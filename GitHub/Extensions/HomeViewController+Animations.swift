@@ -33,21 +33,4 @@ extension HomeViewController {
             }
         )
     }
-    
-    func animationButtonPressed() {
-        signInButton.layer.removeAllAnimations()
-        UIView.animate(withDuration: 0.2,
-            delay: 0.1,
-            usingSpringWithDamping: 1.5,
-            initialSpringVelocity: 0.0,
-            animations: {
-                self.signInButton.transform = CGAffineTransform(scaleX: 1.1, y: 1.2)
-            },
-            completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.signInButton.transform = CGAffineTransform.identity
-                }
-            }
-        )
-    }
 }

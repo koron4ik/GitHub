@@ -17,6 +17,7 @@ struct APIManager {
     let githubURL = "https://api.github.com"
     let reposURL = "https://api.github.com/repos"
     let search = "/search/repositories?"
+    let userReposUrl = "https://api.github.com/user/repos"
     
     let host = "www.google.com"
     let clientId = "e474de4ebc134d61208b"

@@ -8,19 +8,17 @@
 
 import UIKit
 
-class SearchViewController: RepositorieViewController, UISearchBarDelegate {
-    
-    private var apiManager = APIManager()
-    
+class SearchViewController: RepositoriesViewController, UISearchBarDelegate {
+        
     private var cellsPerPage = 30
     
-    private let searchController: UISearchController = {
-        let search = UISearchController(searchResultsController: nil)
-        search.dimsBackgroundDuringPresentation = false
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.sizeToFit()
+    lazy var searchBar: UISearchBar = {
+        var searchBar = UISearchBar(frame: .zero)
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search"
         
-        return search
+        return searchBar
     }()
     
     override func viewDidLoad() {
@@ -28,14 +26,11 @@ class SearchViewController: RepositorieViewController, UISearchBarDelegate {
         
         definesPresentationContext = true
         
-        searchController.searchBar.delegate = self
-        navigationItem.searchController = searchController
-        
-        view.addSubview(activityIndicator)
+        navigationItem.titleView = searchBar
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let searchText = searchController.searchBar.text {
+        if let searchText = searchBar.text {
             repositories.removeAll()
             images.removeAll()
             tableView.reloadData()
@@ -61,7 +56,7 @@ class SearchViewController: RepositorieViewController, UISearchBarDelegate {
                             self.activityIndicator.stop()
                         }
                         if repositories.items?.count == 0 && page == 1 {
-                            self.searchController.searchBar.text?.removeAll()
+                            self.searchBar.text?.removeAll()
                             self.showAlert()
                         }
                     }
@@ -70,15 +65,6 @@ class SearchViewController: RepositorieViewController, UISearchBarDelegate {
                 }
             }
         }.resume()
-    }
-    
-    private func loadProfileImages(repositories: [Repository]) {
-        for item in repositories {
-            if let url = item.owner?.avatar_url {
-                let image = UIImage.loadImage(withURL: url, targetSize: CGSize(width: 35, height: 35))
-                images.append(image ?? UIImage())
-            }
-        }
     }
     
     private func showAlert() {
@@ -90,7 +76,7 @@ class SearchViewController: RepositorieViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == repositories.count - 1 {
-            guard let searchText = searchController.searchBar.text else { return }
+            guard let searchText = searchBar.text else { return }
             activityIndicator.start()
             getRepositories(withName: searchText, page: repositories.count / cellsPerPage + 1)
         }

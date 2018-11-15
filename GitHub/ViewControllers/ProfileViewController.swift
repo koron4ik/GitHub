@@ -12,17 +12,47 @@ import WebKit
 class ProfileViewController: UIViewController {
     
     private var apiManager = APIManager()
-    
-    private var profileImageView: UIImageView?
-    private var nicknameLabel: UILabel?
-    
     private var user: Owner?
-    private var accessToken: String?
+    
+    private let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 30
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 1
+        
+        return imageView
+    }()
+    
+    private let nicknameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.textAlignment = .center
+        label.isUserInteractionEnabled = false
+        
+        return label
+    }()
+    
+    private let userView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.init(red: 223/255, green: 60/255, blue: 22/255, alpha: 0.85)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    private let followersLabel = FollowingLabel(text: "Followers\n")
+    private let followingLabel = FollowingLabel(text: "Following\n")
     
     private let logoutButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "logout"), for: .normal)
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Logout", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = UIColor.init(red: 117/255, green: 211/255, blue: 106/255, alpha: 0.7)
+        button.layer.borderWidth = 1
         button.addTarget(self, action:#selector(logoutButtonPressed), for: .touchUpInside)
         
         return button
@@ -33,10 +63,16 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.init(red: 119/255, green: 141/255, blue: 196/255, alpha: 1)
+        
         activityIndicator.center = view.center
         activityIndicator.start()
         
+        userView.addSubview(nicknameLabel)
+        userView.addSubview(profileImageView)
+        view.addSubview(userView)
+        view.addSubview(followersLabel)
+        view.addSubview(followingLabel)
         view.addSubview(activityIndicator)
         view.addSubview(logoutButton)
     }
@@ -48,12 +84,9 @@ class ProfileViewController: UIViewController {
             request.addValue("token \(accessToken)", forHTTPHeaderField: "Authorization")
             URLSession.shared.dataTask(with: request) { data, response, error in
                 if let data = data {
-                    if let user = try? JSONDecoder().decode(Owner.self, from: data) {
+                        self.user = try? JSONDecoder().decode(Owner.self, from: data)
                         DispatchQueue.main.async {
-                            self.accessToken = accessToken
-                            self.user = user
                             self.loadUserView()
-                        }
                     }
                 }
             }.resume()
@@ -61,28 +94,46 @@ class ProfileViewController: UIViewController {
     }
     
     private func loadUserView() {
-        if let avatarUrl = user?.avatar_url {
-            setupProfileImageView(withImageURL: avatarUrl)
-        }
+        setupConstraints()
         
-        if let login = user?.login {
-            setupUserNickName(withText: login)
-        }
-        self.activityIndicator.stop()
-        self.setupConstraints()
+        setupProfileImageView()
+        setupUserNickName()
+        setupFollowersLabel()
+        setupFollowingLabel()
+        
+        activityIndicator.stop()
     }
     
     private func setupConstraints() {
-        logoutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width / 10).isActive = true
-        logoutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width / 10)).isActive = true
-        logoutButton.heightAnchor.constraint(equalTo: logoutButton.widthAnchor, multiplier: 1.0/6.0).isActive = true
-        logoutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.bounds.height / 8)).isActive = true
+        userView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        userView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        userView.topAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!).isActive = true
+        userView.heightAnchor.constraint(equalToConstant: view.frame.height / 3).isActive = true
         
-        profileImageView?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView?.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height / 6).isActive = true
-
-        nicknameLabel?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        nicknameLabel?.topAnchor.constraint(equalTo: profileImageView?.bottomAnchor ?? view.topAnchor, constant: 20.0).isActive = true
+        profileImageView.centerXAnchor.constraint(equalTo: userView.centerXAnchor).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: userView.topAnchor, constant: 20).isActive = true
+        profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor, multiplier: 1).isActive = true
+        
+        nicknameLabel.leadingAnchor.constraint(equalTo: userView.leadingAnchor).isActive = true
+        nicknameLabel.trailingAnchor.constraint(equalTo: userView.trailingAnchor).isActive = true
+        nicknameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        nicknameLabel.bottomAnchor.constraint(equalTo: userView.bottomAnchor, constant: -20).isActive = true
+        nicknameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 20.0).isActive = true
+        
+        followersLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        followersLabel.trailingAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        followersLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        followersLabel.topAnchor.constraint(equalTo: userView.bottomAnchor).isActive = true
+        
+        followingLabel.leadingAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        followingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        followingLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        followingLabel.topAnchor.constraint(equalTo: userView.bottomAnchor).isActive = true
+        
+        logoutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        logoutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        logoutButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        logoutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height / 10)).isActive = true
     }
     
     @objc func logoutButtonPressed() {
@@ -101,37 +152,29 @@ class ProfileViewController: UIViewController {
         self.tabBarController?.navigationController?.popViewController(animated: true)
     }
     
-    private func setupUserNickName(withText login: String) {
-        let textSize = login.sizeOfString(usingFont: UIFont.boldSystemFont(ofSize: 30))
-        nicknameLabel = UILabel()
-        nicknameLabel?.frame.size = CGSize(width: textSize.width, height: textSize.height)
-        nicknameLabel?.translatesAutoresizingMaskIntoConstraints = false
-        nicknameLabel?.text = login
-        nicknameLabel?.font = UIFont.boldSystemFont(ofSize: 30)
-        nicknameLabel?.textAlignment = .center
-        nicknameLabel?.isUserInteractionEnabled = false
-        
-        if let nicknameLabel = nicknameLabel {
-            view.addSubview(nicknameLabel)
+    private func setupFollowersLabel() {
+        if let followers = user?.followers {
+            followersLabel.text? += String(followers)
         }
     }
     
-    private func setupProfileImageView(withImageURL urlPath: String) {
-        let size = CGSize(width: view.frame.width / 3, height: view.frame.height / 3)
-        
-        guard let image = UIImage.loadImage(withURL: urlPath, targetSize: size) else { return }
-        
-        profileImageView = UIImageView()
-        profileImageView?.frame.size = CGSize(width: size.width, height: size.height)
-        profileImageView?.translatesAutoresizingMaskIntoConstraints = false
-        profileImageView?.image = image
-        profileImageView?.contentMode = .scaleAspectFit
-        profileImageView?.layer.cornerRadius = 20
-        profileImageView?.clipsToBounds = true
-        profileImageView?.layer.borderWidth = 1
-        
-        if let profileImageView = profileImageView {
-            view.addSubview(profileImageView)
+    private func setupFollowingLabel() {
+        if let following = user?.following {
+            followingLabel.text? += String(following)
+        }
+    }
+    
+    private func setupUserNickName() {
+        if let login = user?.login {
+            nicknameLabel.text = login
+        }
+    }
+    
+    private func setupProfileImageView() {
+        if let avatarUrl = user?.avatar_url {
+            let size = profileImageView.frame.size
+            guard let image = UIImage.loadImage(withURL: avatarUrl, targetSize: size) else { return }
+            profileImageView.image = image
         }
     }
 }
