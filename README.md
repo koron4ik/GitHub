@@ -1,5 +1,5 @@
 # GitHub
-iOS app for GitHub. 
+Client for the GitHub REST API V3.
 
 Currently supported:
 - [x] [Repositories API](https://developer.github.com/v3/repo)
