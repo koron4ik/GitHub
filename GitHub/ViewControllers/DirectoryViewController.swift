@@ -46,7 +46,7 @@ class DirectoryViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView(frame: .zero)
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.init(red: 133/255, green: 149/255, blue: 240/255, alpha: 1)
         view.addSubview(activityIndicatior)
         
         activityIndicatior.start()
@@ -151,6 +151,7 @@ class DirectoryViewController: UITableViewController {
             return UITableViewCell()
         }
         
+        cell.backgroundColor = UIColor.init(red: 117/255, green: 211/255, blue: 106/255, alpha: 0.3)
         cell.textLabel?.text = content[indexPath.row].name
         
         if content[indexPath.row].type == "dir" {

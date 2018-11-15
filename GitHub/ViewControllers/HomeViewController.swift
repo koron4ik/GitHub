@@ -59,9 +59,7 @@ class HomeViewController: UIViewController {
         beginButtonAnimation()
     }
     
-    @objc func loginButtonPressed() {
-        animationButtonPressed()
-        
+    @objc func loginButtonPressed() {        
         let loginViewController = LoginViewController()
         navigationController?.pushViewController(loginViewController, animated: true)
     }

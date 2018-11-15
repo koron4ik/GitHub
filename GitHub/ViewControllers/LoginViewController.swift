@@ -63,6 +63,15 @@ class LoginViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         activityIndicator.stop()
     }
     
+    func presentTabBarController(accessToken: String) {
+        self.navigationController?.isNavigationBarHidden = true
+        let menuTabBarController = MenuTabBarController()
+        self.navigationController?.pushViewController(menuTabBarController, animated: true)
+        self.navigationController?.viewControllers.remove(at: 1)
+        menuTabBarController.profileViewController.newUser(accessToken: accessToken)
+        menuTabBarController.userRepositoriesViewController.getRepositories(accessToken: accessToken)
+    }
+    
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if let url = navigationAction.request.url, url.host == apiManager.host {
             if let code = url.query?.components(separatedBy: "code=").last {
@@ -84,11 +93,7 @@ class LoginViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
                                 if let content = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] {
                                     if let accessToken = content["access_token"] as? String {
                                         DispatchQueue.main.async {
-                                            self.navigationController?.isNavigationBarHidden = true
-                                            let menuTabBarController = MenuTabBarController()
-                                            menuTabBarController.profileViewController.newUser(accessToken: accessToken)
-                                            self.navigationController?.pushViewController(menuTabBarController, animated: true)
-                                            self.navigationController?.viewControllers.remove(at: 1)
+                                            self.presentTabBarController(accessToken: accessToken)
                                         }
                                     }
                                 }

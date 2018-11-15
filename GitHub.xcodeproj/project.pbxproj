@@ -16,6 +16,8 @@
 		DD57B9A32199E6DD00623163 /* UIImage+resizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57B9A22199E6DD00623163 /* UIImage+resizeImage.swift */; };
 		DD57CD87219C2AD100A3896F /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57CD86219C2AD100A3896F /* Content.swift */; };
 		DD57CD89219C2AE200A3896F /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57CD88219C2AE200A3896F /* Owner.swift */; };
+		DD57CD8B219CD0E400A3896F /* FollowingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57CD8A219CD0E400A3896F /* FollowingLabel.swift */; };
+		DD57CD8F219CDF7500A3896F /* UserRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57CD8E219CDF7500A3896F /* UserRepositoriesViewController.swift */; };
 		DD828728218EEFE6009F314E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD828727218EEFE6009F314E /* LoginViewController.swift */; };
 		DD8E937F219ABE6E00AAADC1 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E937E219ABE6E00AAADC1 /* RepositoriesViewController.swift */; };
 		DD8E9383219B7D7C00AAADC1 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E9382219B7D7C00AAADC1 /* ActivityIndicator.swift */; };
@@ -42,6 +44,8 @@
 		DD57B9A22199E6DD00623163 /* UIImage+resizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resizeImage.swift"; sourceTree = "<group>"; };
 		DD57CD86219C2AD100A3896F /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		DD57CD88219C2AE200A3896F /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		DD57CD8A219CD0E400A3896F /* FollowingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingLabel.swift; sourceTree = "<group>"; };
+		DD57CD8E219CDF7500A3896F /* UserRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesViewController.swift; sourceTree = "<group>"; };
 		DD828727218EEFE6009F314E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD8E937E219ABE6E00AAADC1 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		DD8E9382219B7D7C00AAADC1 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				DD8E9382219B7D7C00AAADC1 /* ActivityIndicator.swift */,
+				DD57CD8A219CD0E400A3896F /* FollowingLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 				DDF669F5218DBBF800453E63 /* ProfileViewController.swift */,
 				DDF669F0218DAD3600453E63 /* SearchViewController.swift */,
 				DDF669EE218DAD2A00453E63 /* BookmarkViewController.swift */,
+				DD57CD8E219CDF7500A3896F /* UserRepositoriesViewController.swift */,
 				DD8E937E219ABE6E00AAADC1 /* RepositoriesViewController.swift */,
 				DD9A827E2191EE6A0088F227 /* DirectoryViewController.swift */,
 				DDF7142B2195E50D0054AD0E /* FileViewController.swift */,
@@ -262,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDF669F6218DBBF800453E63 /* ProfileViewController.swift in Sources */,
+				DD57CD8F219CDF7500A3896F /* UserRepositoriesViewController.swift in Sources */,
 				DDF669EF218DAD2A00453E63 /* BookmarkViewController.swift in Sources */,
 				DDF669F3218DB0CC00453E63 /* MenuTabBarController.swift in Sources */,
 				DD57B9A32199E6DD00623163 /* UIImage+resizeImage.swift in Sources */,
@@ -269,6 +276,7 @@
 				DD8E937F219ABE6E00AAADC1 /* RepositoriesViewController.swift in Sources */,
 				DD9A827F2191EE6A0088F227 /* DirectoryViewController.swift in Sources */,
 				DDF669FC218DF1AA00453E63 /* Repositories.swift in Sources */,
+				DD57CD8B219CD0E400A3896F /* FollowingLabel.swift in Sources */,
 				DDF7142C2195E50D0054AD0E /* FileViewController.swift in Sources */,
 				DD1DE1E1218CE8CB007BBF7C /* HomeViewController.swift in Sources */,
 				DDF669F1218DAD3600453E63 /* SearchViewController.swift in Sources */,

@@ -19,7 +19,7 @@ class FileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.init(red: 119/255, green: 141/255, blue: 196/255, alpha: 1)
         view.addSubview(activityIndicatior)
         
         activityIndicatior.start()
@@ -59,7 +59,7 @@ class FileViewController: UIViewController {
         textView.isScrollEnabled = false
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
-        textView.backgroundColor = .white
+        textView.backgroundColor = UIColor.init(red: 119/255, green: 141/255, blue: 196/255, alpha: 1)
         textView.text = text
         textView.font = UIFont.systemFont(ofSize: 16)
         

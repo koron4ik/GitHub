@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookmarkViewController: RepositorieViewController {
+class BookmarkViewController: RepositoriesViewController {
     
     private let bookmarkId = "bookmark"
     
@@ -52,12 +52,14 @@ class BookmarkViewController: RepositorieViewController {
         images.removeAll()
         repositories.removeAll()
         
+        activityIndicator.start()
         let repositoriesUrl = UserDefaults.standard.stringArray(forKey: bookmarkId)
         if let repositoriesUrl = repositoriesUrl {
             for url in repositoriesUrl {
                 getRepository(withUrl: url)
             }
         }
+        activityIndicator.stop()
     }
     
     private func getRepository(withUrl urlString: String) {
