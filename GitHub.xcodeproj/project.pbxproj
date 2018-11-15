@@ -30,6 +30,7 @@
 		DDF669FC218DF1AA00453E63 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669FB218DF1AA00453E63 /* Repositories.swift */; };
 		DDF669FE218DF21600453E63 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF669FD218DF21600453E63 /* APIManager.swift */; };
 		DDF7142C2195E50D0054AD0E /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF7142B2195E50D0054AD0E /* FileViewController.swift */; };
+		DDFE568A219DDC12006B5761 /* UIVIewController+setupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFE5689219DDC11006B5761 /* UIVIewController+setupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		DDF669FB218DF1AA00453E63 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 		DDF669FD218DF21600453E63 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		DDF7142B2195E50D0054AD0E /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
+		DDFE5689219DDC11006B5761 /* UIVIewController+setupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIVIewController+setupViewController.swift"; path = "../../../1/GitHub/GitHub/Extensions/UIVIewController+setupViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				DDF669F7218DCC4600453E63 /* HomeViewController+Animations.swift */,
+				DDFE5689219DDC11006B5761 /* UIVIewController+setupViewController.swift */,
 				DD57B99E2199B6A400623163 /* String+sizeOfString.swift */,
 				DD57B9A22199E6DD00623163 /* UIImage+resizeImage.swift */,
 			);
@@ -280,6 +283,7 @@
 				DDF7142C2195E50D0054AD0E /* FileViewController.swift in Sources */,
 				DD1DE1E1218CE8CB007BBF7C /* HomeViewController.swift in Sources */,
 				DDF669F1218DAD3600453E63 /* SearchViewController.swift in Sources */,
+				DDFE568A219DDC12006B5761 /* UIVIewController+setupViewController.swift in Sources */,
 				DDF669F8218DCC4600453E63 /* HomeViewController+Animations.swift in Sources */,
 				DD57CD89219C2AE200A3896F /* Owner.swift in Sources */,
 				DD828728218EEFE6009F314E /* LoginViewController.swift in Sources */,

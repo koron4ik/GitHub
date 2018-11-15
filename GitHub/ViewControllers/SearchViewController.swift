@@ -26,10 +26,23 @@ class SearchViewController: RepositoriesViewController, UISearchBarDelegate {
         
         definesPresentationContext = true
         
+        searchBar.setShowsCancelButton(true, animated: true)
         navigationItem.titleView = searchBar
     }
     
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton = true
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
         if let searchText = searchBar.text {
             repositories.removeAll()
             images.removeAll()
@@ -38,6 +51,12 @@ class SearchViewController: RepositoriesViewController, UISearchBarDelegate {
             activityIndicator.start()
             getRepositories(withName: searchText, page: 1)
         }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
     }
     
     private func getRepositories(withName name: String, page: Int) {
