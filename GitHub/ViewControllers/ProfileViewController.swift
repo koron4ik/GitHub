@@ -107,7 +107,7 @@ class ProfileViewController: UIViewController {
         nicknameLabel?.frame.size = CGSize(width: textSize.width, height: textSize.height)
         nicknameLabel?.translatesAutoresizingMaskIntoConstraints = false
         nicknameLabel?.text = login
-        nicknameLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        nicknameLabel?.font = UIFont.init(name: "Noteworthy-Bold", size: 30)
         nicknameLabel?.textAlignment = .center
         nicknameLabel?.isUserInteractionEnabled = false
         
